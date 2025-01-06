@@ -3,7 +3,7 @@ import { HydratedDocument } from 'mongoose';
 
 @Schema()
 export class User {
-  @Prop({ unique: true })
+  @Prop()
   username: string;
 
   @Prop({ unique: true })
@@ -12,7 +12,7 @@ export class User {
   @Prop()
   password: string;
 
-  @Prop()
+  @Prop({ i18n: true })
   country: string;
 }
 
