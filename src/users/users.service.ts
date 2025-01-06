@@ -16,7 +16,11 @@ export class UserService {
 
   async findUsers(): Promise<User[]> {
     const users = await this.userModel.find();
-    return users;
+    const localizedUsers = this.userModel.schema.methods.toJSONLocalizedOnly(
+      users,
+      I18nContext.current().lang,
+    );
+    return localizedUsers;
   }
 
   async findUserById(id: string): Promise<User> {
